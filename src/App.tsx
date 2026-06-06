@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import { 
   CheckCircle2, 
   Hammer, 
@@ -38,7 +39,7 @@ export default function App() {
     const object = Object.fromEntries(formData.entries());
     object.access_key = "2ea846be-9eb7-46f7-884e-430c4d1a0347";
     object.subject = "Nuevo contacto desde la web de Reformas Villarejo de Salvanés";
-    object.from_name = "Web Reformas Villarejo";
+    object.from_name = "Web Reformas Villarejo de Salvanés";
     
     const json = JSON.stringify(object);
 
@@ -136,98 +137,203 @@ export default function App() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center pt-32 pb-20 overflow-hidden">
+        <section className="relative min-h-[100vh] flex items-center pt-32 pb-20 overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <img 
+            <motion.img 
+              initial={{ scale: 1.05 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
               src="https://www.6mejores.com/wp-content/uploads/2026/03/empresa-de-reformas-home-page.jpg" 
               alt="Reforma de interior moderna y elegante en Villarejo de Salvanés" 
               className="w-full h-full object-cover object-right" 
               referrerPolicy="no-referrer" 
             />
-            {/* Gradiente suave de izquierda a derecha para asegurar la legibilidad del texto oscuro sin usar recuadros */}
-            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/20 md:to-transparent"></div>
+            {/* Gradiente sofisticado para legibilidad del texto */}
+            <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-transparent"></div>
           </div>
           
           <div className="relative z-10 px-4 max-w-7xl mx-auto w-full">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 font-semibold text-sm mb-6 shadow-sm">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="max-w-3xl"
+            >
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-900/5 border border-slate-900/10 backdrop-blur-md text-emerald-800 font-semibold text-sm mb-8 shadow-sm">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
                 </span>
-                Especialistas en Reformas Integrales
+                <span className="tracking-wide uppercase text-xs font-bold">Especialistas en Reformas Integrales</span>
               </div>
 
               <h1>
-                <a href="https://www.objetivo.br/" rel="dofollow" className="text-slate-900 font-bold text-4xl md:text-6xl no-underline hover:text-slate-700 transition-colors">
-                  Reformas Villarejo de Salvanés
+                <a href="https://www.objetivo.br/" rel="dofollow" className="text-slate-900 font-extrabold text-5xl md:text-7xl leading-tight md:leading-tight tracking-tight no-underline hover:text-emerald-700 transition-colors">
+                  Reformas <br className="hidden md:block" /> Villarejo de Salvanés
                 </a>
               </h1>
               
-              <p className="mt-6 text-xl md:text-2xl text-slate-700 font-light max-w-2xl leading-relaxed">
-                Especialistas en reformas integrales, cocinas y baños. Más de 20 años transformando hogares y locales comerciales en Villarejo de Salvanés con acabados premium.
+              <p className="mt-8 text-xl md:text-2xl text-slate-700 font-light max-w-xl leading-relaxed">
+                Transformando espacios con acabados premium. Más de <strong className="font-semibold">20 años</strong> de experiencia en diseño, obras y reformas llave en mano.
               </p>
               
-              <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                <a href="#contacto" className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-emerald-600 rounded-full hover:bg-emerald-700 transition-all shadow-lg hover:shadow-emerald-600/30 transform hover:-translate-y-1">
+              <div className="mt-12 flex flex-col sm:flex-row gap-5">
+                <a href="#contacto" className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-slate-900 rounded-full hover:bg-emerald-600 transition-all duration-300 shadow-xl hover:shadow-emerald-600/20 transform hover:-translate-y-1">
                   Obtener Presupuesto Gratuito
                 </a>
-                <a href="tel:640839282" className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-slate-800 bg-white border border-slate-200 rounded-full hover:bg-slate-50 transition-all shadow-md hover:shadow-lg group">
-                  <div className="bg-emerald-100 p-2 rounded-full mr-3 group-hover:bg-emerald-200 transition-colors">
-                    <Phone className="w-4 h-4 text-emerald-700" />
+                <a href="tel:640839282" className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-slate-800 bg-white/80 backdrop-blur border border-slate-200 rounded-full hover:bg-white transition-all shadow-md group">
+                  <div className="bg-slate-100 p-2 rounded-full mr-3 group-hover:bg-emerald-50 transition-colors">
+                    <Phone className="w-4 h-4 text-slate-700 group-hover:text-emerald-600" />
                   </div>
                   640 839 282
                 </a>
               </div>
 
-              <div className="mt-12 flex flex-wrap items-center gap-6 text-sm font-medium text-slate-600">
-                <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm py-2 px-4 rounded-lg border border-slate-200/60">
-                  <ShieldCheck className="w-5 h-5 text-emerald-600" />
-                  <span>Garantía por escrito</span>
+              <div className="mt-16 flex flex-wrap items-center gap-8 text-sm font-medium text-slate-700">
+                <div className="flex items-center gap-3">
+                  <ShieldCheck className="w-6 h-6 text-emerald-600" />
+                  <span className="text-base tracking-tight">Garantía por escrito</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm py-2 px-4 rounded-lg border border-slate-200/60">
-                  <Clock className="w-5 h-5 text-emerald-600" />
-                  <span>Plazos cerrados</span>
+                <div className="flex items-center gap-3">
+                  <Clock className="w-6 h-6 text-emerald-600" />
+                  <span className="text-base tracking-tight">Plazos cerrados</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
-        {/* Introducción SEO */}
-        <section className="py-24 bg-white">
+        {/* Introducción Bento Grid SEO */}
+        <section className="py-32 bg-white">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Tu Empresa de Reformas en Villarejo de Salvanés de Confianza</h2>
-                <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                  Si estás pensando en renovar tu vivienda, chalet o local comercial, en <strong className="font-semibold text-slate-900">Reformas Villarejo de Salvanés</strong> encontrarás al equipo de profesionales ideal. Como empresa de reformas líder en la zona, garantizamos un servicio integral que abarca desde el diseño inicial hasta la entrega de llaves, utilizando siempre materiales de construcción de primera calidad.
-                </p>
-                <p className="text-lg text-slate-600 leading-relaxed">
-                  Realizamos todo tipo de obras: <strong className="font-medium text-slate-800">reformas integrales, renovación de cocinas, cambio de bañera por plato de ducha y rehabilitaciones de fachadas</strong>. Cumplimos rigurosamente con los plazos acordados, ofreciendo presupuestos cerrados sin sorpresas de última hora para tu total tranquilidad.
-                </p>
-              </div>
-              <div className="relative">
-                <div className="absolute inset-0 bg-emerald-600 rounded-3xl transform translate-x-4 translate-y-4 opacity-10"></div>
+            <div className="text-center mb-16 max-w-3xl mx-auto">
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight"
+              >
+                Tu Empresa de Reformas en Villarejo de Salvanés de Confianza
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-xl text-slate-600 font-light leading-relaxed"
+              >
+                Si estás pensando en renovar tu vivienda, chalet o local comercial, en <strong className="font-semibold text-slate-900">Reformas Villarejo de Salvanés</strong> encontrarás al equipo de profesionales ideal. Garantizamos un servicio integral desde el diseño hasta la entrega de llaves.
+              </motion.p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-6xl mx-auto">
+              {/* Main Feature */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="md:col-span-8 group relative rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 min-h-[400px] bg-slate-900"
+              >
                 <img 
                   src="https://www.6mejores.com/wp-content/uploads/2026/02/empresa-de-reformas-.jpg" 
                   alt="Equipo de reformas trabajando en Villarejo de Salvanés" 
-                  className="relative rounded-3xl shadow-xl w-full h-64 md:h-[400px] object-cover"
+                  className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
-              </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full">
+                  <div className="bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider py-1.5 px-4 rounded-full inline-block mb-4">Especialidad</div>
+                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-3">Reformas Integrales</h3>
+                  <p className="text-slate-200 text-lg leading-relaxed max-w-xl font-light">Transformamos viviendas completas con diseño moderno, materiales de primera calidad y ejecución impecable cumpliendo los plazos acordados.</p>
+                </div>
+              </motion.div>
+
+              {/* Secondary Feature 1 */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="md:col-span-4 bg-slate-50 rounded-[2rem] p-8 border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6 text-emerald-600 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                    <CheckCircle2 className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3 tracking-tight">Presupuesto Cerrado</h3>
+                  <p className="text-slate-600 font-light leading-relaxed">
+                    Evaluamos tu proyecto al detalle para ofrecerte un precio final sin sorpresas de última hora. Total transparencia.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Secondary Feature 2 */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="md:col-span-5 bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
+              >
+                  <div className="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6 text-emerald-600 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                    <Hammer className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3 tracking-tight">Baños y Cocinas</h3>
+                  <p className="text-slate-600 font-light leading-relaxed mb-6">
+                    Renovamos los espacios más importantes de tu hogar. Sustitución de bañera por plato de ducha y diseños de cocinas modernas.
+                  </p>
+                  <a href="#servicios" className="text-emerald-600 font-semibold flex items-center hover:text-emerald-700 transition-colors">
+                    Ver todos los servicios <ArrowRight className="w-4 h-4 ml-2" />
+                  </a>
+              </motion.div>
+
+              {/* Feature with subtle image */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="md:col-span-7 group relative rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 bg-slate-900 min-h-[300px]"
+              >
+                <img 
+                  src="https://www.6mejores.com/wp-content/uploads/2026/02/rehabilacion-fachadas-empresa-de-reformas.jpg" 
+                  alt="Rehabilitación y exteriores" 
+                  className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
+                  referrerPolicy="no-referrer"
+                />
+                 <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-transparent"></div>
+                 <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-center">
+                    <h3 className="text-3xl font-bold text-white mb-4 tracking-tight">Rehabilitación de Fachadas</h3>
+                    <p className="text-slate-200 text-lg leading-relaxed max-w-md font-light">
+                      Mejoramos la eficiencia energética y la estética de tu edificio o chalet con técnicas avanzadas de aislamiento y revestimiento.
+                    </p>
+                 </div>
+              </motion.div>
             </div>
           </div>
         </section>
 
         {/* Servicios */}
-        <section id="servicios" className="py-24 bg-slate-50">
+        <section id="servicios" className="py-32 bg-slate-50/50">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Servicios de Reformas en Villarejo de Salvanés</h2>
-              <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                Soluciones integrales de albañilería, fontanería, electricidad y decoración para cada rincón de tu hogar o negocio en la Comarca de Las Vegas.
-              </p>
+            <div className="text-center mb-20">
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight"
+              >
+                Servicios de Reformas en Villarejo de Salvanés
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-xl text-slate-600 font-light max-w-2xl mx-auto"
+              >
+                Soluciones integrales de albañilería, fontanería, electricidad y decoración para cada rincón de tu hogar o negocio en Villarejo de Salvanés y comarca.
+              </motion.p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -239,134 +345,208 @@ export default function App() {
                 { icon: HardHat, title: 'Albañilería General', desc: 'Tabiquería, solados, alicatados y trabajos estructurales con máxima precisión.', img: 'https://www.6mejores.com/wp-content/uploads/2026/02/empresa-de-reformas-albalineria.jpg' },
                 { icon: ShieldCheck, title: 'Rehabilitación de Fachadas', desc: 'Mantenimiento y restauración de exteriores para edificios y chalets.', img: 'https://www.6mejores.com/wp-content/uploads/2026/02/rehabilacion-fachadas-empresa-de-reformas.jpg' }
               ].map((service, idx) => (
-                <article key={idx} className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-100 group overflow-hidden flex flex-col">
-                  <div className="h-48 overflow-hidden relative">
-                    <img src={service.img} alt={service.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
-                      <service.icon className="w-6 h-6 text-white" />
+                <motion.article 
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="bg-white rounded-[2rem] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 group overflow-hidden flex flex-col"
+                >
+                  <div className="h-56 overflow-hidden relative">
+                    <img src={service.img} alt={service.title} className="w-full h-full object-cover transform scale-105 group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-5 left-5 w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/20 shadow-xl group-hover:bg-emerald-600 transition-colors duration-300">
+                      <service.icon className="w-7 h-7 text-white" />
                     </div>
                   </div>
-                  <div className="p-6 flex-grow">
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
-                    <p className="text-slate-600 leading-relaxed">{service.desc}</p>
+                  <div className="p-8 flex-grow">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-3 tracking-tight">{service.title}</h3>
+                    <p className="text-slate-600 leading-relaxed font-light">{service.desc}</p>
                   </div>
-                </article>
+                </motion.article>
               ))}
             </div>
           </div>
         </section>
 
         {/* Banner CTA Intermedio */}
-        <section className="py-16 bg-emerald-600 text-white text-center relative overflow-hidden">
-          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
-          <div className="max-w-4xl mx-auto px-4 relative z-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">¿Tienes un proyecto en mente? Hagámoslo realidad.</h2>
-            <p className="text-xl text-emerald-100 mb-10 font-light">
-              Cuéntanos qué necesitas y te prepararemos un presupuesto detallado, transparente y <strong className="font-semibold text-white">totalmente gratuito</strong>, sin ningún tipo de compromiso.
+        <section className="py-24 bg-slate-900 text-white text-center relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-emerald-400 via-transparent to-transparent"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-600/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto px-4 relative z-10"
+          >
+            <h2 className="text-4xl md:text-6xl font-extrabold mb-8 tracking-tight">¿Tienes un proyecto en mente?</h2>
+            <p className="text-xl md:text-2xl text-slate-300 mb-12 font-light max-w-2xl mx-auto leading-relaxed">
+              Cuéntanos qué necesitas y te prepararemos un presupuesto detallado y transparente, <strong className="font-semibold text-white">totalmente gratuito</strong>.
             </p>
-            <a href="#contacto" className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-emerald-900 bg-white rounded-full hover:bg-slate-50 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
-              Solicitar mi Presupuesto Ahora <ArrowRight className="ml-2 w-5 h-5" />
+            <a href="#contacto" className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-slate-900 bg-white rounded-full hover:bg-emerald-50 transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] transform hover:-translate-y-1">
+              Solicitar mi Presupuesto Ahora <ArrowRight className="ml-3 w-6 h-6" />
             </a>
-          </div>
+          </motion.div>
         </section>
 
         {/* Por qué elegirnos */}
-        <section className="py-24 bg-slate-900 text-white overflow-hidden">
+        <section className="py-32 bg-white text-slate-900 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div className="relative z-10">
-                <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">¿Por qué somos la empresa de reformas líder en Villarejo de Salvanés?</h2>
-                <p className="text-xl text-slate-300 mb-10 leading-relaxed">
-                  Sabemos que acometer una obra en casa es una decisión importante. Como especialistas en <strong className="font-semibold text-white">reformas integrales en Villarejo de Salvanés</strong>, nos comprometemos a ofrecerte total tranquilidad, gestión de licencias y un equipo técnico altamente cualificado.
-                </p>
-                <ul className="space-y-6">
-                  <li className="flex items-start bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
-                    <ShieldCheck className="w-8 h-8 text-emerald-400 mr-4 shrink-0" />
-                    <div>
-                      <strong className="block text-lg font-semibold text-white mb-1">Calidad Garantizada</strong>
-                      <span className="text-slate-300">Utilizamos materiales de primera línea y técnicas avanzadas para asegurar durabilidad.</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
-                    <Clock className="w-8 h-8 text-emerald-400 mr-4 shrink-0" />
-                    <div>
-                      <strong className="block text-lg font-semibold text-white mb-1">Plazos Cumplidos</strong>
-                      <span className="text-slate-300">Tu tiempo es oro. Nos comprometemos por contrato a finalizar en la fecha acordada.</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start bg-slate-800/50 p-4 rounded-xl border border-slate-700/50">
-                    <CheckCircle2 className="w-8 h-8 text-emerald-400 mr-4 shrink-0" />
-                    <div>
-                      <strong className="block text-lg font-semibold text-white mb-1">Equipo Profesional</strong>
-                      <span className="text-slate-300">Albañiles, fontaneros, electricistas y diseñadores altamente cualificados en plantilla.</span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div className="relative lg:ml-10">
-                <div className="absolute inset-0 bg-emerald-500 rounded-3xl transform rotate-3 scale-105 opacity-20"></div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+              <motion.div 
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="relative lg:order-2"
+              >
+                <div className="absolute inset-0 bg-slate-100 rounded-[2.5rem] transform -rotate-3 scale-105"></div>
                 <img 
                   src="https://www.6mejores.com/wp-content/uploads/2026/02/reformas-integrales-garantia-de-por-vida.jpg" 
                   alt="Garantía de por vida en reformas integrales" 
-                  className="relative rounded-3xl shadow-2xl object-cover h-80 md:h-[500px] lg:h-[600px] w-full" 
+                  className="relative rounded-[2rem] shadow-2xl object-cover h-80 md:h-[500px] lg:h-[600px] w-full" 
                   referrerPolicy="no-referrer" 
                 />
-                <div className="absolute bottom-4 left-4 md:-bottom-8 md:-left-8 bg-white text-slate-900 p-6 md:p-8 rounded-3xl shadow-2xl border border-slate-100">
-                  <p className="text-5xl font-black text-emerald-600 mb-1">+20</p>
-                  <p className="text-sm font-bold uppercase tracking-widest text-slate-500">Años de<br/>Experiencia</p>
-                </div>
+                <motion.div 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="absolute bottom-4 left-4 md:-bottom-10 md:-left-10 bg-slate-900 text-white p-8 md:p-10 rounded-3xl shadow-2xl border border-slate-700/50 backdrop-blur-md"
+                >
+                  <p className="text-6xl font-black text-emerald-400 mb-2">+20</p>
+                  <p className="text-sm font-bold uppercase tracking-widest text-slate-300">Años de<br/>Experiencia</p>
+                </motion.div>
+              </motion.div>
+
+              <div className="relative z-10 lg:order-1">
+                <motion.h2 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="text-4xl md:text-5xl font-extrabold mb-10 leading-tight tracking-tight text-slate-900"
+                >
+                  ¿Por qué somos la empresa de reformas líder en Villarejo de Salvanés?
+                </motion.h2>
+                <motion.p 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="text-xl text-slate-600 mb-12 leading-relaxed font-light"
+                >
+                  Sabemos que acometer una obra en casa es una decisión importante. Nos comprometemos a ofrecerte total tranquilidad, gestión de licencias y un equipo técnico altamente cualificado.
+                </motion.p>
+                <ul className="space-y-8">
+                  {[
+                    { icon: ShieldCheck, title: 'Calidad Garantizada', desc: 'Utilizamos materiales de primera línea y técnicas avanzadas para asegurar durabilidad.' },
+                    { icon: Clock, title: 'Plazos Cumplidos', desc: 'Tu tiempo es oro. Nos comprometemos por contrato a finalizar en la fecha acordada.' },
+                    { icon: CheckCircle2, title: 'Equipo Profesional', desc: 'Albañiles, fontaneros, electricistas y diseñadores altamente cualificados en plantilla.' }
+                  ].map((feature, idx) => (
+                    <motion.li 
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2 + (idx * 0.1) }}
+                      className="flex items-start group"
+                    >
+                      <div className="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mr-6 shrink-0 group-hover:bg-emerald-100 transition-colors">
+                        <feature.icon className="w-7 h-7 text-emerald-600" />
+                      </div>
+                      <div>
+                        <strong className="block text-xl font-bold text-slate-900 mb-2">{feature.title}</strong>
+                        <span className="text-slate-600 font-light leading-relaxed">{feature.desc}</span>
+                      </div>
+                    </motion.li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
         </section>
 
         {/* Galería de Inspiración */}
-        <section className="py-24 bg-white">
+        <section className="py-32 bg-slate-50/50 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Inspiración y Calidad en cada Detalle</h2>
-              <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+            <div className="text-center mb-20">
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight"
+              >
+                Inspiración y Calidad en cada Detalle
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-xl text-slate-600 font-light max-w-2xl mx-auto"
+              >
                 Cuidamos cada aspecto de la obra para entregar resultados excepcionales. Explora algunos de nuestros acabados premium.
-              </p>
+              </motion.p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <img 
-                src="https://www.6mejores.com/wp-content/uploads/2026/02/empresa-reformas-integrales-.jpg" 
-                alt="Detalle de reforma integral" 
-                className="w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-shadow"
-                referrerPolicy="no-referrer"
-              />
-              <img 
-                src="https://www.6mejores.com/wp-content/uploads/2026/02/reforma-cocina.jpg" 
-                alt="Reforma de cocina moderna" 
-                className="w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-shadow"
-                referrerPolicy="no-referrer"
-              />
-              <img 
-                src="https://www.6mejores.com/wp-content/uploads/2026/02/empresa-de-reformas-albalineria.jpg" 
-                alt="Trabajos de albañilería profesional" 
-                className="w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-shadow"
-                referrerPolicy="no-referrer"
-              />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                { img: 'https://www.6mejores.com/wp-content/uploads/2026/02/empresa-reformas-integrales-.jpg', alt: 'Detalle de reforma integral' },
+                { img: 'https://www.6mejores.com/wp-content/uploads/2026/02/reforma-cocina.jpg', alt: 'Reforma de cocina moderna' },
+                { img: 'https://www.6mejores.com/wp-content/uploads/2026/02/empresa-de-reformas-albalineria.jpg', alt: 'Trabajos de albañilería profesional' }
+              ].map((item, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="overflow-hidden rounded-[2rem] shadow-xl hover:shadow-2xl transition-shadow"
+                >
+                  <img 
+                    src={item.img} 
+                    alt={item.alt} 
+                    className="w-full h-80 object-cover hover:scale-105 transition-transform duration-700"
+                    referrerPolicy="no-referrer"
+                  />
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
 
         {/* Proyectos Realizados: Antes y Después */}
-        <section id="proyectos" className="py-24 bg-slate-50">
+        <section id="proyectos" className="py-32 bg-white">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">Proyectos Realizados: Antes y Después</h2>
-              <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+            <div className="text-center mb-20">
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight"
+              >
+                Proyectos Realizados: Antes y Después
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-xl text-slate-600 font-light max-w-2xl mx-auto"
+              >
                 Una imagen vale más que mil palabras. Descubre cómo transformamos espacios anticuados en hogares modernos, elegantes y funcionales.
-              </p>
+              </motion.p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {/* Proyecto 1 */}
-              <div className="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 group flex flex-col">
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-slate-50 rounded-[2.5rem] overflow-hidden shadow-lg border border-slate-100 group flex flex-col"
+              >
                 <div className="overflow-hidden relative">
                   <img 
                     src="https://www.6mejores.com/wp-content/uploads/2026/02/reforma-cocina-antes-y-despues.jpg" 
@@ -374,20 +554,26 @@ export default function App() {
                     className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur text-slate-900 text-sm font-bold px-4 py-2 rounded-full shadow-sm">
+                  <div className="absolute top-6 left-6 bg-white/95 backdrop-blur text-slate-900 text-sm font-extrabold px-5 py-2.5 rounded-full shadow-lg tracking-wide uppercase">
                     Reforma de Cocina
                   </div>
                 </div>
-                <div className="p-8 flex-grow">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3">Modernización de Cocina</h3>
-                  <p className="text-slate-600 leading-relaxed">
+                <div className="p-10 flex-grow">
+                  <h3 className="text-3xl font-bold text-slate-900 mb-4 tracking-tight">Modernización de Cocina</h3>
+                  <p className="text-lg text-slate-600 leading-relaxed font-light">
                     Renovación completa optimizando el espacio, mejorando la iluminación e instalando mobiliario de alta calidad con acabados contemporáneos. Un cambio radical para el corazón del hogar.
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Proyecto 2 */}
-              <div className="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 group flex flex-col">
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="bg-slate-50 rounded-[2.5rem] overflow-hidden shadow-lg border border-slate-100 group flex flex-col"
+              >
                 <div className="overflow-hidden relative">
                   <img 
                     src="https://www.6mejores.com/wp-content/uploads/2026/02/reforma-salon-antes-y-despues-2.jpg" 
@@ -395,159 +581,219 @@ export default function App() {
                     className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur text-slate-900 text-sm font-bold px-4 py-2 rounded-full shadow-sm">
+                  <div className="absolute top-6 left-6 bg-white/95 backdrop-blur text-slate-900 text-sm font-extrabold px-5 py-2.5 rounded-full shadow-lg tracking-wide uppercase">
                     Reforma de Salón
                   </div>
                 </div>
-                <div className="p-8 flex-grow">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3">Transformación de Salón Comedor</h3>
-                  <p className="text-slate-600 leading-relaxed">
+                <div className="p-10 flex-grow">
+                  <h3 className="text-3xl font-bold text-slate-900 mb-4 tracking-tight">Transformación de Salón Comedor</h3>
+                  <p className="text-lg text-slate-600 leading-relaxed font-light">
                     Apertura de espacios, alisado de paredes, nueva iluminación LED y cambio de suelos para crear un ambiente cálido, amplio y acogedor. Máximo confort y diseño.
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
             
-            <div className="mt-16 text-center">
-              <a href="#contacto" className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                Quiero un resultado así para mi casa <ArrowRight className="ml-2 w-5 h-5" />
+            <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="mt-20 text-center"
+            >
+              <a href="#contacto" className="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white bg-slate-900 rounded-full hover:bg-emerald-600 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                Quiero un resultado así para mi casa <ArrowRight className="ml-3 w-5 h-5" />
               </a>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Reviews */}
-        <section id="opiniones" className="py-24 bg-white">
+        <section id="opiniones" className="py-32 bg-slate-50">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Lo que dicen nuestros clientes</h2>
-              <p className="text-lg text-slate-600">La satisfacción de quienes confían en nosotros es nuestra mejor garantía.</p>
+            <div className="text-center mb-20">
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight"
+              >
+                Lo que dicen nuestros clientes
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-xl text-slate-600 font-light"
+              >
+                La satisfacción de quienes confían en nosotros es nuestra mejor garantía.
+              </motion.p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               {[
                 { name: 'María Gómez', text: 'Hicieron la reforma integral de mi piso y el resultado fue espectacular. Cumplieron los plazos y el presupuesto al céntimo. Muy profesionales.' },
                 { name: 'Carlos Ruiz', text: 'Renovamos la cocina y los baños. El equipo fue muy limpio durante la obra y los acabados son de primera calidad. Totalmente recomendables.' },
                 { name: 'Laura Martínez', text: 'Buscábamos una empresa seria para reformar nuestro local comercial y acertamos de pleno. Asesoramiento perfecto y ejecución impecable.' }
               ].map((review, idx) => (
-                <div key={idx} className="bg-slate-50 p-8 rounded-2xl relative">
-                  <div className="flex text-amber-400 mb-4">
-                    {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="bg-white p-10 rounded-[2rem] shadow-sm hover:shadow-xl transition-shadow border border-slate-100 relative"
+                >
+                  <div className="flex text-amber-400 mb-6">
+                    {[...Array(5)].map((_, i) => <Star key={i} className="w-6 h-6 fill-current" />)}
                   </div>
-                  <p className="text-slate-600 mb-6 italic">"{review.text}"</p>
-                  <p className="font-bold text-slate-900">{review.name}</p>
-                </div>
+                  <p className="text-lg text-slate-600 mb-8 font-light leading-relaxed">"{review.text}"</p>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 font-bold text-lg">
+                      {review.name.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="font-bold text-slate-900">{review.name}</p>
+                      <p className="text-sm text-slate-500">Cliente Verificado</p>
+                    </div>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
 
         {/* FAQ SEO */}
-        <section id="faq" className="py-24 bg-slate-50">
-          <div className="max-w-3xl mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 text-center mb-12">Preguntas Frecuentes</h2>
-            <div className="space-y-4">
-              <details className="group bg-white rounded-2xl shadow-sm border border-slate-100 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex items-center justify-between p-6 cursor-pointer font-semibold text-lg text-slate-900">
-                  ¿Cuánto cuesta una reforma integral en Villarejo de Salvanés?
-                  <ChevronDown className="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180" />
-                </summary>
-                <div className="px-6 pb-6 text-slate-600 leading-relaxed">
-                  El precio de una reforma en Villarejo de Salvanés depende de los m2 de la vivienda, las calidades de los materiales y el alcance de la obra (fontanería, electricidad, suelos). Ofrecemos presupuestos detallados y cerrados sin compromiso para que sepas exactamente cuánto vas a invertir.
-                </div>
-              </details>
-              
-              <details className="group bg-white rounded-2xl shadow-sm border border-slate-100 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex items-center justify-between p-6 cursor-pointer font-semibold text-lg text-slate-900">
-                  ¿Cuánto tiempo tarda en hacerse una reforma de vivienda?
-                  <ChevronDown className="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180" />
-                </summary>
-                <div className="px-6 pb-6 text-slate-600 leading-relaxed">
-                  El tiempo estimado varía según el proyecto. Una reforma de baño o cocina puede tardar entre 1 y 2 semanas, mientras que en <strong className="font-medium text-slate-900">Reformas Villarejo de Salvanés</strong> completamos reformas integrales de pisos o chalets en un plazo de 6 a 8 semanas, garantizando la fecha de entrega por contrato.
-                </div>
-              </details>
-
-              <details className="group bg-white rounded-2xl shadow-sm border border-slate-100 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex items-center justify-between p-6 cursor-pointer font-semibold text-lg text-slate-900">
-                  ¿Necesito licencia de obras en el Ayuntamiento de Villarejo de Salvanés?
-                  <ChevronDown className="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180" />
-                </summary>
-                <div className="px-6 pb-6 text-slate-600 leading-relaxed">
-                  Sí, para la mayoría de modificaciones estructurales o reformas integrales es necesario solicitar la licencia correspondiente (obra mayor u obra menor). Nuestro equipo técnico se encarga de gestionar todos los permisos y licencias en el Ayuntamiento de Villarejo de Salvanés por ti.
-                </div>
-              </details>
-
-              <details className="group bg-white rounded-2xl shadow-sm border border-slate-100 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex items-center justify-between p-6 cursor-pointer font-semibold text-lg text-slate-900">
-                  ¿Ofrecen garantía en los trabajos de albañilería y fontanería?
-                  <ChevronDown className="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180" />
-                </summary>
-                <div className="px-6 pb-6 text-slate-600 leading-relaxed">
-                  Absolutamente. Como empresa de reformas de confianza, todos nuestros trabajos de albañilería, fontanería, electricidad y carpintería cuentan con garantía por escrito. Trabajamos con marcas líderes en materiales de construcción para asegurar la máxima durabilidad.
-                </div>
-              </details>
-
-              <details className="group bg-white rounded-2xl shadow-sm border border-slate-100 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex items-center justify-between p-6 cursor-pointer font-semibold text-lg text-slate-900">
-                  ¿Realizan reformas de locales comerciales en la zona?
-                  <ChevronDown className="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180" />
-                </summary>
-                <div className="px-6 pb-6 text-slate-600 leading-relaxed">
-                  Sí, somos especialistas en la adecuación y reforma de locales comerciales en Villarejo de Salvanés y la Comarca de Las Vegas. Adaptamos tu negocio a la normativa vigente, optimizando el espacio para mejorar la experiencia de tus clientes y potenciar tus ventas.
-                </div>
-              </details>
+        <section id="faq" className="py-32 bg-white">
+          <div className="max-w-4xl mx-auto px-4">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-extrabold text-slate-900 text-center mb-16 tracking-tight"
+            >
+              Preguntas Frecuentes
+            </motion.h2>
+            <div className="space-y-6">
+              {[
+                { 
+                  q: '¿Cuánto cuesta una reforma integral en Villarejo de Salvanés?', 
+                  a: 'El precio de una reforma en Villarejo de Salvanés depende de los m2 de la vivienda, las calidades de los materiales y el alcance de la obra (fontanería, electricidad, suelos). Ofrecemos presupuestos detallados y cerrados sin compromiso para que sepas exactamente cuánto vas a invertir.'
+                },
+                { 
+                  q: '¿Cuánto tiempo tarda en hacerse una reforma de vivienda?', 
+                  a: 'El tiempo estimado varía según el proyecto. Una reforma de baño o cocina puede tardar entre 1 y 2 semanas, mientras que en Reformas Villarejo de Salvanés completamos reformas integrales de pisos o chalets en un plazo de 6 a 8 semanas, garantizando la fecha de entrega por contrato.'
+                },
+                { 
+                  q: '¿Necesito licencia de obras en el Ayuntamiento de Villarejo de Salvanés?', 
+                  a: 'Sí, para la mayoría de modificaciones estructurales o reformas integrales es necesario solicitar la licencia correspondiente (obra mayor u obra menor). Nuestro equipo técnico se encarga de gestionar todos los permisos y licencias en el Ayuntamiento de Villarejo de Salvanés por ti.'
+                },
+                { 
+                  q: '¿Ofrecen garantía en los trabajos de albañilería y fontanería?', 
+                  a: 'Absolutamente. Como empresa de reformas de confianza, todos nuestros trabajos de albañilería, fontanería, electricidad y carpintería cuentan con garantía por escrito. Trabajamos con marcas líderes en materiales de construcción para asegurar la máxima durabilidad.'
+                },
+                { 
+                  q: '¿Realizan reformas de locales comerciales en la zona?', 
+                  a: 'Sí, somos especialistas en la adecuación y reforma de locales comerciales en Villarejo de Salvanés y alrededores. Adaptamos tu negocio a la normativa vigente, optimizando el espacio para mejorar la experiencia de tus clientes y potenciar tus ventas.'
+                }
+              ].map((faq, idx) => (
+                <motion.details 
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="group bg-slate-50 rounded-3xl border border-slate-100 [&_summary::-webkit-details-marker]:hidden overflow-hidden"
+                >
+                  <summary className="flex items-center justify-between p-8 cursor-pointer font-bold text-xl text-slate-900 transition-colors group-hover:text-emerald-700">
+                    {faq.q}
+                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm shrink-0 ml-4 group-open:bg-emerald-600 group-open:text-white transition-colors border border-slate-100">
+                      <ChevronDown className="w-5 h-5 transition-transform group-open:rotate-180" />
+                    </div>
+                  </summary>
+                  <div className="px-8 pb-8 text-slate-600 leading-relaxed font-light text-lg border-t border-slate-200 pt-6 mx-8">
+                    {faq.a}
+                  </div>
+                </motion.details>
+              ))}
             </div>
           </div>
         </section>
 
         {/* Zonas de Cobertura SEO Local */}
-        <section className="py-24 bg-emerald-900 text-white relative overflow-hidden">
+        <section className="py-32 bg-slate-900 text-white relative overflow-hidden">
           {/* Elementos decorativos de fondo */}
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-20 pointer-events-none">
-            <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-500 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-slate-900 to-transparent"></div>
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-30 pointer-events-none">
+            <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-emerald-600 rounded-full blur-[100px]"></div>
+            <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-emerald-900 rounded-full blur-[100px]"></div>
+            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
           </div>
 
           <div className="max-w-7xl mx-auto px-4 relative z-10">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">Empresa de Reformas en Villarejo de Salvanés y Alrededores</h2>
-              <p className="text-xl text-emerald-100 max-w-3xl mx-auto font-light leading-relaxed">
-                Conocemos nuestra localidad a la perfección. Ofrecemos un servicio rápido, de proximidad y sin costes de desplazamiento abusivos en todos los barrios y urbanizaciones del municipio.
-              </p>
+            <div className="text-center mb-20">
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight text-white"
+              >
+                Empresa de Reformas en Villarejo de Salvanés y Alrededores
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-xl text-emerald-100/80 max-w-3xl mx-auto font-light leading-relaxed"
+              >
+                Conocemos nuestra localidad a la perfección. Ofrecemos un servicio rápido, de proximidad y sin costes de desplazamiento abusivos.
+              </motion.p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {[
-                { name: 'Centro Histórico y Casco Antiguo', desc: 'Reformas respetando la arquitectura tradicional cerca del Castillo, la Plaza y Casa de la Tercia.' },
-                { name: 'Barrio de la Virgen de la Victoria', desc: 'Actualización de viviendas, baños y cocinas en la zona del santuario y calles aledañas.' },
-                { name: 'Zonas Residenciales y Ensanche', desc: 'Modernización de chalets, adosados y pisos en las áreas de expansión del municipio.' },
-                { name: 'Polígono Industrial Empedrado', desc: 'Adecuación de naves, oficinas y locales comerciales para impulsar tu negocio.' },
-                { name: 'Zona del Polideportivo y Colegios', desc: 'Reformas integrales pensadas para familias en las áreas más dinámicas y concurridas.' },
-                { name: 'Urbanizaciones y Fincas del Término', desc: 'Trabajos de exterior, piscinas, vallados y acondicionamiento general.' }
+                { name: 'Centro Histórico y Casco Antiguo', desc: 'Reformas respetando la arquitectura tradicional en el centro del municipio.' },
+                { name: 'Barrio de la Virgen de la Victoria', desc: 'Actualización de viviendas, baños y cocinas en uno de los barrios más emblemáticos.' },
+                { name: 'Zonas Residenciales y Ensanche', desc: 'Modernización de chalets, adosados y pisos en zonas residenciales.' },
+                { name: 'Polígono Ind. Empedrado', desc: 'Adecuación de naves, oficinas y locales comerciales para impulsar tu negocio.' },
+                { name: 'Zona del Polideportivo', desc: 'Reformas integrales pensadas para un entorno dinámico y familiar.' },
+                { name: 'Urbanizaciones y Fincas', desc: 'Trabajos de exterior, piscinas, vallados y acondicionamiento general.' }
               ].map((barrio, idx) => (
-                <div key={idx} className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl hover:bg-white/20 transition-all hover:-translate-y-1 flex items-start group">
-                  <div className="bg-emerald-500/20 p-3 rounded-xl mr-4 group-hover:bg-emerald-500/40 transition-colors shrink-0">
-                    <MapPin className="w-6 h-6 text-emerald-300" />
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] hover:bg-white/10 transition-all hover:-translate-y-2 flex items-start group"
+                >
+                  <div className="bg-emerald-500/20 p-4 rounded-2xl mr-5 group-hover:bg-emerald-500/40 transition-colors shrink-0 border border-emerald-500/20">
+                    <MapPin className="w-6 h-6 text-emerald-400" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg text-white mb-2">{barrio.name}</h3>
-                    <p className="text-emerald-100/80 text-sm leading-relaxed">{barrio.desc}</p>
+                    <h3 className="font-bold text-xl text-white mb-2 tracking-tight">{barrio.name}</h3>
+                    <p className="text-emerald-100/60 font-light leading-relaxed">{barrio.desc}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
 
         {/* Contacto y Mapa */}
-        <section id="contacto" className="py-24 bg-white">
+        <section id="contacto" className="py-32 bg-white relative">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
               
               {/* Formulario */}
-              <div className="bg-slate-50 p-6 md:p-12 rounded-3xl border border-slate-100 shadow-lg relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-2 bg-emerald-500"></div>
-                <h2 className="text-3xl font-bold text-slate-900 mb-4">Solicita tu Presupuesto 100% Gratuito</h2>
-                <p className="text-slate-600 mb-8 leading-relaxed">
+              <motion.div 
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="bg-slate-50 p-8 md:p-14 rounded-[3rem] border border-slate-100 shadow-2xl relative overflow-hidden"
+              >
+                <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-emerald-400 to-emerald-600"></div>
+                <h2 className="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Solicita tu Presupuesto 100% Gratuito</h2>
+                <p className="text-slate-600 mb-10 leading-relaxed font-light text-lg">
                   Rellena el formulario sin compromiso. Un experto de nuestro equipo evaluará tu proyecto y te ofrecerá la mejor solución al mejor precio.
                 </p>
                 
@@ -606,37 +852,54 @@ export default function App() {
                     </div>
                   )}
                 </form>
-              </div>
+              </motion.div>
 
               {/* Info y Mapa */}
-              <div className="flex flex-col justify-between">
+              <motion.div 
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="flex flex-col justify-between"
+              >
                 <div>
-                  <h2 className="text-3xl font-bold text-slate-900 mb-8">Datos de Contacto</h2>
-                  <div className="space-y-6 mb-12">
-                    <div className="flex items-start">
-                      <div className="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center shrink-0 mr-4">
-                        <MapPin className="w-6 h-6 text-emerald-600" />
+                  <h2 className="text-4xl font-extrabold text-slate-900 mb-10 tracking-tight">Datos de Contacto</h2>
+                  <div className="space-y-8 mb-12">
+                    <div className="flex items-start group">
+                      <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center shrink-0 mr-6 border border-slate-100 group-hover:bg-emerald-50 transition-colors">
+                        <MapPin className="w-7 h-7 text-emerald-600" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-slate-900 text-lg">Dirección</h3>
-                        <p className="text-slate-600 mt-1">C. de los Mesones, 28590<br/>Villarejo de Salvanés, Madrid</p>
+                        <h3 className="font-bold text-slate-900 text-xl tracking-tight">Dirección</h3>
+                        <p className="text-slate-600 mt-2 font-light leading-relaxed">C. de los Mesones, 28590<br/>Villarejo de Salvanés, Madrid</p>
                       </div>
                     </div>
-                    <div className="flex items-start">
-                      <div className="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center shrink-0 mr-4">
-                        <Phone className="w-6 h-6 text-emerald-600" />
+                    <div className="flex items-start group">
+                      <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center shrink-0 mr-6 border border-slate-100 group-hover:bg-emerald-50 transition-colors">
+                        <Phone className="w-7 h-7 text-emerald-600" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-slate-900 text-lg">Teléfono</h3>
-                        <p className="text-slate-600 mt-1">
+                        <h3 className="font-bold text-slate-900 text-xl tracking-tight">Teléfono</h3>
+                        <p className="text-slate-600 mt-2 font-light text-lg">
                           <a href="tel:640839282" className="hover:text-emerald-600 transition-colors">640 839 282</a>
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start group">
+                      <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center shrink-0 mr-6 border border-slate-100 group-hover:bg-emerald-50 transition-colors">
+                        <MessageCircle className="w-7 h-7 text-emerald-600" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-slate-900 text-xl tracking-tight">Email</h3>
+                        <p className="text-slate-600 mt-2 break-all font-light">
+                          <a href="mailto:info@reformasvillarejodesalvanes.reformas.org.es" className="hover:text-emerald-600 transition-colors">info@reformasvillarejodesalvanes.reformas.org.es</a>
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
                 
-                <div className="h-[300px] w-full rounded-3xl overflow-hidden shadow-lg border border-slate-100">
+                <div className="h-[350px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-100 relative group">
+                  <div className="absolute inset-0 bg-slate-900/10 pointer-events-none group-hover:bg-transparent transition-colors duration-500 z-10"></div>
                   <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48722.95573426532!2d-3.315024451367187!3d40.1666667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42416b9d6c3c55%3A0x40340f3be4d2f80!2s28590%20Villarejo%20de%20Salvan%C3%A9s%2C%20Madrid!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" 
                     width="100%" 
@@ -646,9 +909,10 @@ export default function App() {
                     loading="lazy" 
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Mapa de ubicación en Villarejo de Salvanés"
+                    className="grayscale-[30%] opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
                   ></iframe>
                 </div>
-              </div>
+              </motion.div>
 
             </div>
           </div>
@@ -656,6 +920,7 @@ export default function App() {
 
         {/* Otras Delegaciones */}
         <div className="flex flex-wrap gap-4 text-xs text-gray-400 justify-center mt-10 mb-8 px-4 max-w-7xl mx-auto">
+          <a href="https://arquitectostalaveradelareina.com.es" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors hidden">Arquitectos Talavera de la Reina</a>
           <a href="https://reformasusera.reformas.org.es" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas Usera</a>
           <a href="https://reformasvaldemoro.reformas.org.es" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas Valdemoro</a>
           <a href="https://reformasbarajas.reformas.org.es" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas Barajas</a>
@@ -667,31 +932,37 @@ export default function App() {
           <a href="https://reformaspinto.reformas.org.es" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas Pinto</a>
           <a href="https://reformasarroyomolinos.reformas.org.es" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas Arroyomolinos</a>
           <a href="https://reformassevillalanueva.reformas.org.es" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas Sevilla la Nueva</a>
-          <a href="https://reformas-colmenar-de-oreja.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas Colmenar de Oreja</a>
           <a href="https://reformasnavalcarnero.reformas.org.es" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas Navalcarnero</a>
-          <a href="https://reformas-villa-del-prado.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas Villa del Prado</a>
           <a href="https://reformasciempozuelos.reformas.org.es" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas Ciempozuelos</a>
           <a href="https://reformashumanes.reformas.org.es" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas Humanes</a>
           <a href="https://reformassanmartindelavega.reformas.org.es" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas San Martín de la Vega</a>
           <a href="https://reformasgrinon.reformas.org.es" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas Griñón</a>
           <a href="https://reformaselalamo.reformas.org.es" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas El Álamo</a>
-          <a href="https://reformasmadrid.nom.es" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas Madrid</a>
           <a href="https://reformastorrejondelacalzada.reformas.org.es" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas Torrejón de la Calzada</a>
-          <a href="https://reformas-san-martin.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas San Martín</a>
-          <a href="https://reformas-morata-de-tajuna.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas Morata de Tajuña</a>
+          <a href="https://reformasmadrid.nom.es" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas Madrid</a>
           <a href="https://reformasguadalajara.com.es" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Reformas Guadalajara</a>
+          <a href="https://instalacioneselectricasmostoles.reformas.org.es" target="_blank" rel="noopener noreferrer" className="hover:text-slate-600 transition-colors">Instalaciones Eléctricas Móstoles</a>
         </div>
 
       </main>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+      <footer className="bg-slate-950 text-slate-400 py-16 border-t border-slate-800">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="mb-6 text-slate-300">
+          <div className="inline-flex items-center justify-center gap-3 mb-8 opacity-80">
+            <div className="bg-emerald-600 text-white p-2.5 rounded-xl">
+              <Hammer className="w-6 h-6" />
+            </div>
+            <span className="font-extrabold text-2xl text-white tracking-tight">
+              Reformas <span className="text-emerald-500">Villarejo</span>
+            </span>
+          </div>
+          <p className="mb-8 text-slate-300 font-light text-lg leading-relaxed">
             Confía tu proyecto a los mejores. En <strong className="text-white font-semibold">Reformas Villarejo de Salvanés</strong>, estamos listos para hacer realidad la casa de tus sueños con un servicio profesional, cercano y garantizado.
           </p>
-          <p className="text-sm">
-            © 2026 Reformas Villarejo de Salvanés. Todos los derechos reservados.
+          <div className="h-px w-24 bg-slate-800 mx-auto mb-8"></div>
+          <p className="text-sm font-light">
+            © {new Date().getFullYear()} Reformas Villarejo de Salvanés. Todos los derechos reservados.
           </p>
         </div>
       </footer>
